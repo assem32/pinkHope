@@ -1,12 +1,22 @@
 
 import 'package:breastcancer1/cubit/cubit.dart';
+import 'package:breastcancer1/modules/chats/chat.dart';
+import 'package:breastcancer1/modules/chats/cubit/cubit.dart';
 import 'package:breastcancer1/modules/image.dart';
+import 'package:breastcancer1/modules/login/cubit/cubit.dart';
+import 'package:breastcancer1/modules/login/login_page.dart';
+import 'package:breastcancer1/modules/register/cubit/cubit.dart';
+import 'package:breastcancer1/shared/network/local/cache_helper.dart';
 import 'package:breastcancer1/shared/network/remote/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding();
   DioHelper.init();
+  Firebase.initializeApp();
+  // uid=CacheHelper.getData(key: 'uid');
   runApp(const MyApp());
 }
 
@@ -19,6 +29,9 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext context)=>PateintCubit()),
+        BlocProvider(create: (BuildContext context)=>RegisterCubit()),
+        BlocProvider(create: (BuildContext context)=>LoginCubit()),
+        BlocProvider(create: (BuildContext context)=>ChatCubit()..getUsers()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -42,7 +55,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
 
         ),
-        home: ImagePickerPage(),
+        home: LoginPage(),
         debugShowCheckedModeBanner: false,
       ),
     );

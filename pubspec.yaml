@@ -40,6 +40,11 @@ dependencies:
   dio: ^5.1.1
   card_swiper: ^2.0.4
   url_launcher: ^6.1.10
+    #fire base
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.4.2
+  cloud_firestore: ^4.5.2
+  shared_preferences: ^2.1.0
 
 
 
@@ -55,6 +60,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_native_splash: ^2.2.18
   flutter_launcher_icons: ^0.13.0
+
+
 flutter_native_splash:
   color : "#FFFFFF"
   image : assets/splash.png

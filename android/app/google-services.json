@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "185106450253",
+    "project_id": "pinkhope-ad930",
+    "storage_bucket": "pinkhope-ad930.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185106450253:android:631d916eaacf0a16561904",
+        "android_client_info": {
+          "package_name": "com.example.breastcancer1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185106450253-3mvuq504j9o6llrnc0ctch53au25a5ug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.breastcancer1",
+            "certificate_hash": "2fcbdde4e6d2e50b25d0f0b42edb96b8eae6320a"
+          }
+        },
+        {
+          "client_id": "185106450253-ct9fmrpjqftc71i19fuhqqkk5eqrlktk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfnS675otsNG0DFe5tQ0yMm9Ic4Z1S9_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185106450253-ct9fmrpjqftc71i19fuhqqkk5eqrlktk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

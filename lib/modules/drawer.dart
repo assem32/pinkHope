@@ -1,3 +1,5 @@
+import 'package:breastcancer1/modules/chats/chat.dart';
+import 'package:breastcancer1/modules/chats/cubit/cubit.dart';
 import 'package:breastcancer1/modules/risk_factor.dart';
 import 'package:breastcancer1/modules/symptoms.dart';
 import 'package:breastcancer1/modules/what_is_breastcancer.dart';
@@ -38,6 +40,16 @@ class CancerDrawer extends StatelessWidget {
               child: ListTile(
                 leading: Image.asset('assets/compliance.png',width: 30,height: 30,),
                 title: Text('Risk Factors'),
+              ),
+            ),
+            InkWell(
+              onTap: (){
+                receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat()));
+              },
+              child: ListTile(
+                leading: Image.asset('assets/chat icon.png',width: 30,height: 60,),
+                title: Text('Chat with the doctor'),
               ),
             ),
             InkWell(
