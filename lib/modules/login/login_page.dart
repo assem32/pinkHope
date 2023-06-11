@@ -15,7 +15,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit,LoginStates>(
       listener: (context,state){
-        if(state is LoginSuccessState && emailController.text=='assemmob@hotmail.com')
+        // if(state is LoginSuccessState && emailController.text=='assemmob@hotmail.com')
+        if(state is LoginDoctorSuccessState)
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Admin()),(route) => false,);
         else if(state is LoginSuccessState){
           Navigator.push(context, MaterialPageRoute(builder: (context)=>ImagePickerPage()));
@@ -86,7 +87,7 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          LoginCubit.get(context).userLogin(email: emailController.text,password: passwordController.text);
+                          LoginCubit.get(context).userLogin(email: emailController.text,password: passwordController.text,context: context);
                         }
                       },
                       child: Text('Login',style: TextStyle(color: Colors.white),),

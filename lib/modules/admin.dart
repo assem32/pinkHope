@@ -10,49 +10,53 @@ class Admin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ChatCubit,ChatStates>(
-      listener: (context,state){},
-      builder: (context,state){
-        return Scaffold(
-          backgroundColor: Colors.grey[300],
-          appBar: AppBar(
-            title: Text('Patient to chat with '),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Expanded(child: ListView.separated(itemBuilder: (context,index)=>
-                    InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatAdmin(userModel:ChatCubit.get(context).usersModel[index] ,)));
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(26)
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: AssetImage('assets/admin image.png'),
-                                radius: 26,
-                              ),
-                              Text('${ChatCubit.get(context).usersModel[index].name}')
-                            ],
+    return BlocProvider(
+      create: (BuildContext context)=>ChatCubit()..getUsers(),
+      child: BlocConsumer<ChatCubit,ChatStates>(
+        listener: (context,state){},
+        builder: (context,state){
+          return Scaffold(
+            backgroundColor: Colors.grey[300],
+            appBar: AppBar(
+              title: Text('Patient to chat with '),
+            ),
+            body: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Expanded(child: ListView.separated(itemBuilder: (context,index)=>
+                      InkWell(
+                        onTap: (){
+                          var id=ChatCubit.get(context).userOnlyList[index];
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatAdmin(userModel:id,)));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(26)
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  backgroundImage: AssetImage('assets/admin image.png'),
+                                  radius: 26,
+                                ),
+                                Text('${ChatCubit.get(context).userOnlyList[index].name}')
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ), separatorBuilder: (context,index)=>SizedBox(height: 20,), itemCount: ChatCubit.get(context).usersModel.length)
-                )
-              ],
+                      ), separatorBuilder: (context,index)=>SizedBox(height: 20,), itemCount: ChatCubit.get(context).userOnlyList.length)
+                  )
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

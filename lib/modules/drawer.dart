@@ -1,3 +1,4 @@
+import 'package:breastcancer1/modules/chat_docotr_list/chat_doctor_lsit.dart';
 import 'package:breastcancer1/modules/chats/chat.dart';
 import 'package:breastcancer1/modules/chats/cubit/cubit.dart';
 import 'package:breastcancer1/modules/risk_factor.dart';
@@ -44,8 +45,8 @@ class CancerDrawer extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Chat()));
+                // receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorListScreen()));
               },
               child: ListTile(
                 leading: Image.asset('assets/chat icon.png',width: 30,height: 60,),

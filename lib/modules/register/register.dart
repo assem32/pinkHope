@@ -1,3 +1,5 @@
+import 'package:breastcancer1/modules/admin.dart';
+import 'package:breastcancer1/modules/chats/chat.dart';
 import 'package:breastcancer1/modules/image.dart';
 import 'package:breastcancer1/modules/register/cubit/cubit.dart';
 import 'package:breastcancer1/modules/register/cubit/state.dart';
@@ -11,13 +13,16 @@ class RegistrationPage extends StatelessWidget {
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final doctorNameController = TextEditingController();
+  String selectedOption='User';
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit,RegisterStates>(
       listener: (context,state){
-        if(state is RegisterSuccessState){
+        if(state is RegisterUserSuccessState){
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ImagePickerPage()),(route) => false,);
+        }else if (state is RegisterDoctorSuccessState) {
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Admin()),(route) => false,);
         }
       },
       builder: (context,state){
@@ -106,17 +111,29 @@ class RegistrationPage extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      TextFormField(
-                        controller: doctorNameController,
+                      DropdownButtonFormField<String>(
                         decoration: InputDecoration(
-                            labelText: 'Doctor Name',
-                            hintText: 'Enter your doctor\'s name',
-                            border: OutlineInputBorder()
-
+                          labelText: 'Select Role',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.person),
                         ),
+                        value: selectedOption,
+                        items: [
+                          DropdownMenuItem<String>(
+                            value: 'User',
+                            child: Text('User'),
+                          ),
+                          DropdownMenuItem<String>(
+                            value: 'Doctor',
+                            child: Text('Doctor'),
+                          ),
+                        ],
+                        onChanged: (value) {
+                          selectedOption = value!;
+                        },
                         validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter your doctor\'s name';
+                          if (value == null) {
+                            return 'Role is required';
                           }
                           return null;
                         },
@@ -133,7 +150,7 @@ class RegistrationPage extends StatelessWidget {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   // Process registration data here
-                                  RegisterCubit.get(context).userRegister(name: nameController.text,email: emailController.text,password: passwordController.text,phone: phoneController.text,);
+                                  RegisterCubit.get(context).userRegister(name: nameController.text,email: emailController.text,password: passwordController.text,phone: phoneController.text,role:selectedOption );
                                 }
                               },
                               child: Text('Register',style: TextStyle(color: Colors.white),),

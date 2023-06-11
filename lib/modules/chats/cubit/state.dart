@@ -7,3 +7,5 @@ class GetUsersState extends ChatStates{}
 class SendMessageState extends ChatStates{}
 
 class GetMessageState extends ChatStates{}
+
+class SearchUserState extends ChatStates{}

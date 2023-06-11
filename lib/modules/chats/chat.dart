@@ -1,6 +1,6 @@
 import 'package:breastcancer1/modules/chats/cubit/cubit.dart';
 import 'package:breastcancer1/modules/chats/cubit/state.dart';
-import 'package:breastcancer1/modules/register/cubit/cubit.dart';
+import 'package:breastcancer1/modules/login/cubit/cubit.dart';
 import 'package:breastcancer1/shared/component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,13 +8,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class Chat extends StatelessWidget {
-  const Chat({Key? key}) : super(key: key);
+   Chat({this.umodel}) ;
+   final umodel;
 
   @override
   Widget build(BuildContext context) {
     return Builder(
       builder: (BuildContext context){
-        ChatCubit.get(context).getMessage(receiverId);
+        ChatCubit.get(context).getMessage(umodel?.uid);
+        print('hee${umodel.uid}');
+        var senderid= userModel?.uid;
+        print(senderid);
+
+
         ScrollController scrollController=ScrollController();
         return BlocConsumer<ChatCubit,ChatStates>(
           listener: (context,state){},
@@ -35,7 +41,7 @@ class Chat extends StatelessWidget {
                           reverse: true,
                             itemBuilder: (context,index){
                           var message=ChatCubit.get(context).chatList[index];
-                          if(message.receiverId!=uid)
+                          if(message.receiverId==umodel?.uid)
                             return senderChatItem(ChatCubit.get(context).chatList[index]);
 
                             return receiverChatItem(ChatCubit.get(context).chatList[index]);
@@ -68,7 +74,7 @@ class Chat extends StatelessWidget {
                               height: 60,
                               color: Color(0xffce0058),
                               child: MaterialButton( onPressed: () {
-                                ChatCubit.get(context).sendMessage(message:message.text,reciverId: receiverId ,date: (DateTime.now()).toString());
+                                ChatCubit.get(context).sendMessage(message:message.text,reciverId: umodel?.uid ,date: (DateTime.now()).toString(),senderId:senderid);
                                 scrollController.animateTo(
                                   scrollController.position.maxScrollExtent,
                                   duration: Duration(milliseconds: 500),
