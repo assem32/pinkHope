@@ -37,7 +37,7 @@ class ChatAdmin extends StatelessWidget {
                             shrinkWrap: true,
                             itemBuilder: (context,index){
                           var message=ChatCubit.get(context).chatList[index].receiverId;
-                          if(message!=uid)
+                          if(message!=userModel.uid)
                             return senderChatItem(ChatCubit.get(context).chatList[index]);
 
                           return receiverChatItem(ChatCubit.get(context).chatList[index]);
