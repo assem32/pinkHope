@@ -1,10 +1,11 @@
-import 'package:breastnew/auth/data/dataSource/remote.dart';
-import 'package:breastnew/auth/data/repo/RepoImp.dart' show AuthReopImp;
-import 'package:breastnew/auth/domain/repo/IRepo.dart';
-import 'package:breastnew/auth/domain/useCase/AuthUsecase.dart';
-import 'package:breastnew/auth/presentation/login/cubit/cubit.dart';
-import 'package:breastnew/auth/presentation/login/login_page.dart';
-import 'package:breastnew/auth/presentation/register/cubit/cubit.dart';
+import 'package:breastnew/feature/auth/data/dataSource/remote.dart';
+import 'package:breastnew/feature/auth/data/repo/RepoImp.dart' show AuthReopImp;
+import 'package:breastnew/feature/auth/domain/repo/IRepo.dart';
+import 'package:breastnew/feature/auth/domain/useCase/AuthUsecase.dart';
+import 'package:breastnew/feature/auth/presentation/login/cubit/cubit.dart';
+import 'package:breastnew/feature/auth/presentation/login/login_page.dart';
+import 'package:breastnew/feature/auth/presentation/register/cubit/cubit.dart';
+import 'package:breastnew/feature/home/presentation/home.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,7 +59,7 @@ class MyApp extends StatelessWidget {
           // tested with just a hot reload.
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: LoginPage(),
+        home: ImagePickerPage(),
       ),
     );
   }
