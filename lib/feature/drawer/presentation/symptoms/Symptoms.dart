@@ -1,3 +1,4 @@
+import 'package:breastnew/feature/drawer/presentation/symptoms/widget/SymptomsItem.dart';
 import 'package:flutter/material.dart';
 
 class Symptoms extends StatelessWidget {
@@ -20,68 +21,35 @@ class Symptoms extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Swelling of all or part of a breast (even if no lump is felt)',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 5.png',width: 75,height: 100,))
-                ],
-              ),
+              SymptomsItem('*Swelling of all or part of a breast (even if no lump is felt)', 'assets/symptoms 5.png'),
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Skin dimpling (sometimes looking like an orange peel)',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 1.png',width: 75,height: 100,))
-                ],
-              ),
+              SymptomsItem('*Skin dimpling (sometimes looking like an orange peel)', 'assets/symptoms 1.png'),
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Breast or nipple pain',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 6.png',width: 75,height: 100,))
-                ],
-              ),
+              SymptomsItem('*Breast or nipple pain', 'assets/symptoms 6.png'),
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Nipple retraction (turning inward)',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 6.png',width: 75,height: 100,))
-
-                ],
-              ),
+              SymptomsItem('*Nipple retraction (turning inward)', 'assets/symptoms 6.png'),
+              
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Nipple or breast skin that is red, dry, flaking, or thickened',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 8.png',width: 75,height: 100,))
-
-                ],
-              ),
+              SymptomsItem('*Nipple or breast skin that is red, dry, flaking, or thickened','assets/symptoms 8.png'),
+             
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Nipple discharge (other than breast milk)',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 3.png',width: 75,height: 100,))
-                ],
-              ),
+              SymptomsItem('*Nipple discharge (other than breast milk)', 'assets/symptoms 3.png'),
+              
               SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Expanded(flex:2,child: Text('*Swollen lymph nodes under the arm or near the collar bone ',style: TextStyle(fontWeight: FontWeight.bold),)),
-                  Expanded(child: Image.asset('assets/symptoms 7.png',width: 75,height: 100,))
-                ],
-              ),
+              SymptomsItem('*Swollen lymph nodes under the arm or near the collar bone ', 'assets/symptoms 7.png'),
+              
             ],
           ),
         ),

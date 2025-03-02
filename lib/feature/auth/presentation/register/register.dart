@@ -147,7 +147,7 @@ class RegistrationPage extends StatelessWidget {
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
                                   // Process registration data here
-                                  RegisterCubit.get(context).registerUserCase(nameController.text,emailController.text,passwordController.text,phoneController.text,'user');
+                                  RegisterCubit.get(context).registerUserCase(nameController.text,emailController.text,passwordController.text,phoneController.text,selectedOption);
                                 }
                               },
                               child: Text('Register',style: TextStyle(color: Colors.white),),

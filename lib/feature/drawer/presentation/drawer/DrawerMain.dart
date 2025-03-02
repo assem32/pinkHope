@@ -1,3 +1,4 @@
+import 'package:breastnew/feature/drawer/presentation/doctors/DoctorsScreen.dart';
 import 'package:breastnew/feature/drawer/presentation/riskFactor/RiskFactors.dart';
 import 'package:breastnew/feature/drawer/presentation/symptoms/Symptoms.dart';
 import 'package:breastnew/feature/drawer/presentation/whatIs/WhatIs.dart';
@@ -40,16 +41,16 @@ class DrawerMain extends StatelessWidget {
                 title: Text('Risk Factors'),
               ),
             ),
-            // InkWell(
-            //   onTap: (){
-            //     // receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
-            //     Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorListScreen()));
-            //   },
-            //   child: ListTile(
-            //     leading: Image.asset('assets/chat icon.png',width: 30,height: 60,),
-            //     title: Text('Chat with the doctor'),
-            //   ),
-            // ),
+            InkWell(
+              onTap: (){
+                // receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorsScreen()));
+              },
+              child: ListTile(
+                leading: Image.asset('assets/chat icon.png',width: 30,height: 60,),
+                title: Text('Chat with the doctor'),
+              ),
+            ),
             InkWell(
               onTap: ()async{
                 await launchUrl(

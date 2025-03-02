@@ -13,19 +13,26 @@ class RemoteDataSource {
     return UserModel.fromFirebaseUser(userCredential.user!);
   }
 
-  Future <UserModel> register(
+  Future<UserModel> register(
     String name,
     String email,
     String password,
     String phone,
     String role,
-  ) async{
+  ) async {
     var usercred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
 
-    UserModel model = createUser(name, email, password, phone, role, usercred.user!.uid);
+    UserModel model = createUser(
+      name,
+      email,
+      password,
+      phone,
+      role,
+      usercred.user!.uid,
+    );
     return model;
   }
 
@@ -44,7 +51,12 @@ class RemoteDataSource {
       uid: uid,
       role: role,
     );
-    FirebaseFirestore.instance.collection("User").doc(uid).set(model.toMap());
+    if (role == 'User') {
+      FirebaseFirestore.instance.collection("User").doc(uid).set(model.toMap());
+    } else if (role == 'Doctor') {
+      FirebaseFirestore.instance.collection("Doctor").doc(uid).set(model.toMap());
+    }
+
     return model;
   }
 }

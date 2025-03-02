@@ -10,7 +10,10 @@ class LoginCubit extends Cubit<LoginStates> {
 
   static LoginCubit get(context) => BlocProvider.of(context);
 
-  Future<UserModel> loginHandel(String email,String password) async {
-   return await authUsecase.loginUseCase(email, password);
+
+  UserModel ?mode;
+  void loginHandel(String email,String password) async {
+   mode =  await authUsecase.loginUseCase(email, password);
+   emit(LoginDoctorSuccessState());
   }
 }
