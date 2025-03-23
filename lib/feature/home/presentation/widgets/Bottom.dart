@@ -9,7 +9,9 @@ class BottomScreen extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Column(
                         children: [
-                          Image.asset('assets/splash.png',width: 100,height: 100,),
+                          Hero(
+                            tag: "splashLogo",
+                            child: Image.asset('assets/splash.png',width: 100,height: 100,)),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,

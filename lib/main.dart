@@ -4,6 +4,7 @@ import 'package:breastnew/feature/auth/domain/useCase/AuthUsecase.dart';
 import 'package:breastnew/feature/auth/presentation/login/cubit/cubit.dart';
 import 'package:breastnew/feature/auth/presentation/login/login_page.dart';
 import 'package:breastnew/feature/auth/presentation/register/cubit/cubit.dart';
+import 'package:breastnew/feature/splash_screen/Splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: LoginPage(),
+        home: SpalshScreen(),
       ),
     );
   }

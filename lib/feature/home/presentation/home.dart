@@ -15,6 +15,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+String? res;
+
 class ImagePickerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -84,12 +86,13 @@ class ImagePickerPage extends StatelessWidget {
                                   ).img.path.split('/').last,
                             ),
                           });
-                          var res = await HomeCubit.get(
+                          res = await HomeCubit.get(
                             context,
                           ).predictUsecase(formData);
                         },
                         child: Text('predict'),
                       ),
+                      if (res != null) Text(res!),
                       SizedBox(height: 20),
                       BottomScreen(),
                     ],
