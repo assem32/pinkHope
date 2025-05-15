@@ -1,3 +1,4 @@
+import 'package:breastnew/core/AppRouter.dart';
 import 'package:breastnew/core/constant.dart';
 import 'package:breastnew/feature/auth/data/models/UserModel.dart';
 import 'package:breastnew/feature/drawer/presentation/chat/Chat.dart';
@@ -16,7 +17,7 @@ class DoctorsListView extends StatelessWidget {
       itemBuilder:
           (context, index) => InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen(list[index].uid!)));
+              AppRouter.router.push("/login/home/doctos/chat/${list[index].uid}");
             },
             child: Row(
               children: [

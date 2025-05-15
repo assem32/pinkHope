@@ -1,3 +1,4 @@
+import 'package:breastnew/core/AppRouter.dart';
 import 'package:breastnew/feature/drawer/presentation/doctors/DoctorsScreen.dart';
 import 'package:breastnew/feature/drawer/presentation/riskFactor/RiskFactors.dart';
 import 'package:breastnew/feature/drawer/presentation/symptoms/Symptoms.dart';
@@ -16,7 +17,7 @@ class DrawerMain extends StatelessWidget {
           children: [
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Symptoms()));
+                AppRouter.router.push("/login/home/symptoms");
               },
               child: ListTile(
                 leading: Image.asset('assets/drawer1.png',width: 30,height: 30,),
@@ -25,7 +26,7 @@ class DrawerMain extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>WhatIs()));
+                AppRouter.router.push("/login/home/whatis");
               },
               child: ListTile(
                 leading: Image.asset('assets/dna.png',width: 30,height: 30,),
@@ -34,7 +35,7 @@ class DrawerMain extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>RiskFactors()));
+                AppRouter.router.push("/login/home/riskfactor");
               },
               child: ListTile(
                 leading: Image.asset('assets/compliance.png',width: 30,height: 30,),
@@ -44,7 +45,7 @@ class DrawerMain extends StatelessWidget {
             InkWell(
               onTap: (){
                 // receiverId ='msqu32aCqUNOpbAnFjcGEHZg9t03';
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>DoctorsScreen()));
+                AppRouter.router.push("/login/home/doctors");
               },
               child: ListTile(
                 leading: Image.asset('assets/chat icon.png',width: 30,height: 60,),

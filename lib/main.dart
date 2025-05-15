@@ -1,3 +1,4 @@
+import 'package:breastnew/core/AppRouter.dart';
 import 'package:breastnew/feature/auth/data/dataSource/remote.dart';
 import 'package:breastnew/feature/auth/data/repo/RepoImp.dart' show AuthReopImp;
 import 'package:breastnew/feature/auth/domain/useCase/AuthUsecase.dart';
@@ -36,12 +37,13 @@ class MyApp extends StatelessWidget {
           )
         )),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: SpalshScreen(),
       ),
     );
   }

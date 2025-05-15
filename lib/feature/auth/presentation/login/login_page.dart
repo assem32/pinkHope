@@ -1,4 +1,4 @@
-
+import 'package:breastnew/core/AppRouter.dart';
 import 'package:breastnew/feature/auth/presentation/login/cubit/cubit.dart';
 import 'package:breastnew/feature/auth/presentation/login/cubit/state.dart';
 import 'package:breastnew/feature/auth/presentation/register/register.dart';
@@ -8,28 +8,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  var emailController=TextEditingController();
-  var passwordController=TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit,LoginStates>(
-      listener: (context,state){
-        // if(state is LoginSuccessState && emailController.text=='assemmob@hotmail.com')
-        if(state is LoginDoctorSuccessState)
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>ImagePickerPage()));
-          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>Admin()),(route) => false,);
-        else{
+    return BlocConsumer<LoginCubit, LoginStates>(
+      listener: (context, state) {
+        if (state is LoginDoctorSuccessState)
+          AppRouter.router.push("/login/home");
+        else {
           print('welc');
-          // Navigator.push(context, MaterialPageRoute(builder: (context)=>ImagePickerPage()));
         }
-
       },
-      builder: (context,state){
-        return  Scaffold(
-          appBar: AppBar(
-            title: Text('Login Page'),
-          ),
+      builder: (context, state) {
+        return Scaffold(
+          appBar: AppBar(title: Text('Login Page')),
           body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Form(
@@ -42,8 +36,9 @@ class LoginPage extends StatelessWidget {
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder()),
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Please enter your name';
@@ -51,14 +46,13 @@ class LoginPage extends StatelessWidget {
                       return null;
                     },
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   TextFormField(
                     controller: passwordController,
                     decoration: InputDecoration(
-                        labelText: 'Password',
-                        border: OutlineInputBorder()),
+                      labelText: 'Password',
+                      border: OutlineInputBorder(),
+                    ),
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -76,7 +70,8 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegistrationPage()),
+                              builder: (context) => RegistrationPage(),
+                            ),
                           );
                         },
                         child: const Text('Register'),
@@ -89,10 +84,16 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          LoginCubit.get(context).loginHandel(emailController.text, passwordController.text,);
+                          LoginCubit.get(context).loginHandel(
+                            emailController.text,
+                            passwordController.text,
+                          );
                         }
                       },
-                      child: Text('Login',style: TextStyle(color: Colors.white),),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
