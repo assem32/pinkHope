@@ -1,16 +1,12 @@
-# breastnew
+# Pink Hope
 
-A new Flutter project.
+A Flutter project to detect the breast cancer using machine learning model to recognize the cancer from the image and also allow to chat with doctors and and provide awareness about the breast cancer and early symptoms.
 
-## Getting Started
+## Technologies
+- Flutter
+- Dart
+- Dio for Http connection
+- Firebase real-time and firebase storage
+- go_router for Navigation
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
